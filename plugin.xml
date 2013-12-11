@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="com.cancian.uservoice" version="0.2.3">
+
+    <name>UserVoice</name>
+    <description>UserVoice iOS Plugin</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,uservoice</keywords>
+
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="UserVoiceCommand">
+                <param name="ios-package" value="UserVoiceCommand"/>
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/UserVoiceCommand.h" />
+        <source-file src="src/ios/UserVoiceCommand.m" />
+        <resource-file src="src/ios/libUserVoice.a" />
+
+        <framework src="QuartzCore.framework" />
+        <framework src="SystemConfiguration.framework" />
+
+        <header-file src="src/ios/UVHeaders/UserVoice.h" />
+        <header-file src="src/ios/UVHeaders/UVConfig.h" />
+        <header-file src="src/ios/UVHeaders/UVDelegate.h" />
+        <header-file src="src/ios/UVHeaders/UVStyleSheet.h" />
+
+        <asset src="src/ios/UVResources" target="Resources/UserVoice" />
+        <asset src="src/ios/UserVoice.js" target="www/js/UserVoice.js" />
+
+    </platform>
+    
+</plugin>
