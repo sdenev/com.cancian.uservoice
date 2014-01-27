@@ -10,9 +10,9 @@
 #import "UVStyleSheet.h"
 #import "UVDelegate.h"
 #import "UVConfig.h"
+#import "UVStyleSheet.h"
 
-@interface UserVoice : NSObject {
-}
+@interface UserVoice : NSObject 
 
 // Initialize UserVoice with a config
 // This should be called on app launch so that UserVoice can provide accurate
@@ -30,6 +30,9 @@
 
 // Modally present the UserVoice forum view
 + (void)presentUserVoiceForumForParentViewController:(UIViewController *)parentViewController;
+
+// Returns the UserVoice contact form which can then be presented modally
++ (UIViewController *)getUserVoiceContactUsFormForModalDisplay;
 
 // Set a <UVDelegate> to receive callbacks
 + (void)setDelegate:(id<UVDelegate>)delegate;
