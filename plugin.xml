@@ -16,7 +16,7 @@
 
         <header-file src="src/ios/UserVoiceCommand.h" />
         <source-file src="src/ios/UserVoiceCommand.m" />
-        <resource-file src="src/ios/libUserVoice.a" />
+        <source-file src="src/ios/libUserVoice.a" framework="true" />
 
         <framework src="QuartzCore.framework" />
         <framework src="SystemConfiguration.framework" />
@@ -30,5 +30,5 @@
         <asset src="src/ios/UserVoice.js" target="www/js/UserVoice.js" />
 
     </platform>
-    
+
 </plugin>
