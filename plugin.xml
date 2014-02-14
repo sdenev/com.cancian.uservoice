@@ -7,6 +7,14 @@
     <license>Apache 2.0</license>
     <keywords>cordova,uservoice</keywords>
 
+    <js-module src="src/ios/UserVoice.js" name="UserVoice">
+        <clobbers target="UserVoice" />
+    </js-module>
+
+    <engines>
+        <engine name="cordova" version="&gt;=3.0.0" />
+    </engines>
+
     <platform name="ios">
         <config-file target="config.xml" parent="/*">
             <feature name="UserVoiceCommand">
@@ -16,7 +24,7 @@
 
         <header-file src="src/ios/UserVoiceCommand.h" />
         <source-file src="src/ios/UserVoiceCommand.m" />
-        <resource-file src="src/ios/libUserVoice.a" />
+        <source-file src="src/ios/libUserVoice.a" framework="true" />
 
         <framework src="QuartzCore.framework" />
         <framework src="SystemConfiguration.framework" />
@@ -27,8 +35,6 @@
         <header-file src="src/ios/UVHeaders/UVStyleSheet.h" />
 
         <asset src="src/ios/UVResources" target="Resources/UserVoice" />
-        <asset src="src/ios/UserVoice.js" target="www/js/UserVoice.js" />
-
     </platform>
-    
+
 </plugin>
