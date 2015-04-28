@@ -2,11 +2,11 @@
 /* MIT licensed */
 // (c) 2013 Surinder Singh, DeveloperExtensions.com
 
-function UserVoice(){
-	//Does nothing
+function successCallback(){
+	alert("USERVOICE LOADED");
 }
-function UzerVoice(){
-	//Does nothing
+function errorCallback(){
+	alert("USERVOICE LOAD FAIL");
 }
 UserVoice.prototype.launch = function(cfg){
 	cfg = cfg?cfg:{};
@@ -15,18 +15,18 @@ UserVoice.prototype.launch = function(cfg){
 		cfg = {};
 	}
 	var config = {
-		task:'viewForum',//[launchFeedback|contactUs|viewForum|postIdea]
-		
-		site:'cancian.uservoice.com',
-		key:'62oo7AhcRoQuvozU6ya6A',
-		secret:'g911MyHj3qs92pDDa6f1XOgT9fHSi7pNBZoXO4E',
-		
-		topicId:1,//[0|453|333 (any valid topicId)]
-		showContactUs:0,//[0|1]
-		showForum:0,//[0|1]
-		showPostIdea:0,//[0|1]
-		showKnowledgeBase:0//[0|1]
-	};
+        task:'launchFeedback',//[launchFeedback|contactUs|viewForum|postIdea]
+
+        site:'sml.uservoice.com',
+        key:'EZP4PVjenv26HxTJkmpEEA',
+        secret:'uLis4bhS7D2ypCRXS8pdyeRTaWihQznrmS0ihC5Enk',
+
+        topicId:0,//[0|453|333 (any valid topicId as interger)]
+        showContactUs:1,//[0|1], Show/hide Contact us button
+        showForum:1,//[0|1] Show/hide Forum button
+        showPostIdea:1,//[0|1] Show/hide Post an idea button
+        showKnowledgeBase:1//[0|1] Show/hide KnowledgeBase items
+      };
 	//Ext.Msg.alert('', Ext.encode(config))
 	for(var key in config){
 		if (typeof cfg[key] !== "undefined"){
@@ -41,9 +41,9 @@ UserVoice.prototype.launch = function(cfg){
 			config[key] = cfg[key];
 		}
 	}
-	
+
 	//cordova.exec(Ext.emptyFn, Ext.emptyFn, "UserVoiceCommand", "launch", [config]);
-	cordova.exec(UzerVoice, UzerVoice, "UserVoiceCommand", "launch", [config]);	
+	cordova.exec(successCallback, errorCallback, "UserVoiceCommand", "launch", [config]);
 };
 UserVoice.install = function(){
 	if(!window.plugins){
@@ -51,11 +51,12 @@ UserVoice.install = function(){
 	}
 	if(!window.plugins.uservoice){
 		window.plugins.uservoice = new UserVoice();
-	}	
+	}
 	return window.plugins.uservoice;
 };
 UserVoice.install();
 
 function showUserVoice(cfg){
+	alert("USERVOICE showUserVoice");
 	window.plugins.uservoice.launch(cfg);
 }
