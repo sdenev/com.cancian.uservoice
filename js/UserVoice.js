@@ -16,16 +16,17 @@ UserVoice.prototype.launch = function(cfg){
 	}
 	var config = {
 		task:'viewForum',//[launchFeedback|contactUs|viewForum|postIdea]
-		
-		site:'cancian.uservoice.com',
-		key:'62oo7AhcRoQuvozU6ya6A',
-		secret:'g911MyHj3qs92pDDa6f1XOgT9fHSi7pNBZoXO4E',
-		
-		topicId:1,//[0|453|333 (any valid topicId)]
+
+		site:'mlearn1.uservoice.com',
+		key:'*****',
+		secret:'******',
+
+		//topicId:1,//[0|453|333 (any valid topicId)]
 		showContactUs:0,//[0|1]
 		showForum:0,//[0|1]
 		showPostIdea:0,//[0|1]
-		showKnowledgeBase:0//[0|1]
+		showKnowledgeBase:0,//[0|1],
+    course: "AppCursos"
 	};
 	//Ext.Msg.alert('', Ext.encode(config))
 	for(var key in config){
@@ -41,9 +42,9 @@ UserVoice.prototype.launch = function(cfg){
 			config[key] = cfg[key];
 		}
 	}
-	
+
 	//cordova.exec(Ext.emptyFn, Ext.emptyFn, "UserVoiceCommand", "launch", [config]);
-	cordova.exec(UzerVoice, UzerVoice, "UserVoiceCommand", "launch", [config]);	
+	cordova.exec(UzerVoice, UzerVoice, "UserVoiceCommand", "launch", [config]);
 };
 UserVoice.install = function(){
 	if(!window.plugins){
@@ -51,7 +52,7 @@ UserVoice.install = function(){
 	}
 	if(!window.plugins.uservoice){
 		window.plugins.uservoice = new UserVoice();
-	}	
+	}
 	return window.plugins.uservoice;
 };
 UserVoice.install();
