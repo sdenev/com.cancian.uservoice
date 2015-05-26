@@ -5,10 +5,10 @@ Forked from projects:
 https://github.com/elvismercado/com.cancian.uservoice
 https://github.com/cancian/com.cancian.uservoice
 
-## Install in Android platform
+## Android platform
 To install in Android, you will need to add the UserVoice SDK as decribed here:  [Android UserVoiceSDK](https://github.com/uservoice/uservoice-android-sdk).
 
-### To customise the UserVoice theme, check the following example:
+##### To customise the UserVoice theme, check the following example:
 
 res/values/styles.xml:
 ``` xml
@@ -47,4 +47,15 @@ res/values/colors.xml:
     <color name="actionbar_background">#0073cf</color>
     <color name="actionbar_text">#ffffff</color>
 </resources>
+```
+## iOS platform
+This plugin includes the iOS UserVoiceSDK-3.2.3.
+
+##### To customise the UserVoice theme, change the lines in UserVoiceCommand.m
+
+``` objective-C
+    [UVStyleSheet instance].navigationBarBackgroundColor = [UIColor colorWithRed:0 green:0.451 blue:0.812 alpha:1];
+    [UVStyleSheet instance].preferredStatusBarStyle = UIStatusBarStyleBlackOpaque;
+    [UVStyleSheet instance].navigationBarTintColor = [UIColor whiteColor];
+    [UVStyleSheet instance].navigationBarTextColor = [UIColor whiteColor];
 ```
