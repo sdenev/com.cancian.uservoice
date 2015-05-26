@@ -1,4 +1,4 @@
-// 	MIT licensed 
+// 	MIT licensed
 //  Created by Surinder Singh on 2013-01-30
 //  Copyright 2013 DeveloperExtenions.com . All rights reserved.
 //  Copyright 2013, Surinder Singh
@@ -11,7 +11,7 @@
 
 #ifdef CORDOVA_FRAMEWORK
 #import <Cordova/CDVViewController.h>
-#else 
+#else
 #import "Cordova/CDVViewController.h"
 #endif
 #import "UserVoice.h"
@@ -19,16 +19,17 @@
 @implementation UserVoiceCommand
 
 
--(void) launch:(NSMutableArray*)arguments withDict:(NSMutableDictionary*)options
+- (void)launch:(CDVInvokedUrlCommand*)command;
 {
+    NSArray *arguments = command.arguments;
+    NSDictionary *options = [arguments objectAtIndex:0];
 
-    
     //MainViewController cont = (MainViewController) self.viewController;
 	NSLog(@"UserVoice launchFeedBack, config: %@, options: %@", arguments, options);
 	NSString *task = [options objectForKey:@"task"];
-	
+
 	if([task isEqualToString:@"launchFeedback"]){
-		[self launchFeedback:options];	
+		[self launchFeedback:options];
 	}else if([task isEqualToString:@"contactUs"]){
 		[self contactUs:options];
 	}else if([task isEqualToString:@"viewForum"]){
@@ -37,23 +38,23 @@
 		[self postIdea:options];
 	}else{
 		NSLog(@"Invalid UserVoice Task: %@", task);
-	}	
+	}
 }
 
 
 - (UVConfig *)uvConfig:(NSMutableDictionary*)options {
-	
+
     //UVConfig *config 			= [UVConfig configWithSite:@"demo.uservoice.com" andKey:@"pZJocTBPbg5FN4bAwczDLQ" andSecret:@"Q7UKcxRYLlSJN4CxegUYI6t0uprdsSAGthRIDvYmI"];
-    
+
 	UVConfig *config 			= [UVConfig configWithSite:[options objectForKey:@"site"] andKey:[options objectForKey:@"key"] andSecret:[options objectForKey:@"secret"]];
-	
+
 	NSInteger topicId 			= [[options objectForKey:@"topicId"] intValue];
 	NSInteger showContactUs 	= [[options objectForKey:@"showContactUs"] intValue];
 	NSInteger showForum 		= [[options objectForKey:@"showForum"] intValue];
 	NSInteger showPostIdea		= [[options objectForKey:@"showPostIdea"] intValue];
 	NSInteger showKnowledgeBase = [[options objectForKey:@"showKnowledgeBase"] intValue];
 	//NSMutableDictionary *customFields  = [options dictionaryForKey:@"customFields"] ;
-	
+
 	if(topicId!=0){
 	//	config.topicId = topicId;
 	}

@@ -13,7 +13,7 @@
 @interface UserVoiceCommand : CDVPlugin {
 
 }
-- (void)launch:(NSMutableArray*)arguments withDict:(NSMutableDictionary*)options;
+- (void)launch:(CDVInvokedUrlCommand*)command;
 
 - (void)launchFeedback:(NSMutableDictionary*)options;
 - (void)contactUs:(NSMutableDictionary*)options;
