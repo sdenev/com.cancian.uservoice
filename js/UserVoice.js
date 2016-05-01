@@ -15,18 +15,17 @@ UserVoice.prototype.launch = function(cfg){
 		cfg = {};
 	}
 	var config = {
-		task:'viewForum',//[launchFeedback|contactUs|viewForum|postIdea]
+		task:'launchFeedback',//[launchFeedback|contactUs|viewForum|postIdea]
 
-		site:'mlearn1.uservoice.com',
+		site:'***.uservoice.com',
 		key:'*****',
 		secret:'******',
 
 		//topicId:1,//[0|453|333 (any valid topicId)]
-		showContactUs:0,//[0|1]
-		showForum:0,//[0|1]
-		showPostIdea:0,//[0|1]
-		showKnowledgeBase:0,//[0|1],
-    course: "AppCursos"
+		showContactUs:1,//[0|1]
+		showForum:1,//[0|1]
+		showPostIdea:1,//[0|1]
+		showKnowledgeBase:1//[0|1]
 	};
 	//Ext.Msg.alert('', Ext.encode(config))
 	for(var key in config){
